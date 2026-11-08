@@ -36,11 +36,10 @@ export function Hero() {
           <div className="relative overflow-hidden rounded-[2rem] border-4 border-white shadow-lift">
             <Image src="/images/shop-banner.jpg" alt="Medical Junction signboard: Your Health, Our Priority" width={1178} height={239} priority className="h-28 w-full object-cover sm:h-32" sizes="(min-width:1024px) 40vw, 90vw" />
             <div className="relative grid place-items-center bg-gradient-to-b from-brand-50 to-brand-200 px-6 py-10">
-              <LogoMark size={64} className="absolute left-5 top-5 opacity-90" />
               <div className="flex items-end gap-2">
-                <ProductArt kind="pills" className="h-28 w-28 animate-float" />
-                <ProductArt kind="firstaid" className="h-36 w-36 animate-float [animation-delay:1s]" />
-                <ProductArt kind="sanitizer" className="h-28 w-28 animate-float [animation-delay:2s]" />
+                <ProductArt kind="pills" className="h-28 w-28" />
+                <ProductArt kind="firstaid" className="h-36 w-36" />
+                <ProductArt kind="sanitizer" className="h-28 w-28" />
               </div>
               <p className="mt-2 font-heading text-lg font-semibold text-brand-900">Your Health, Our Priority</p>
             </div>
