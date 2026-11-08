@@ -46,7 +46,16 @@ interface Likes {
 const locks = new Map<string, Promise<unknown>>();
 
 /** On Netlify the disk is read-only, so data lives in Netlify Blobs (free, built in). Locally it uses files. */
-const onNetlify = Boolean(process.env.NETLIFY || process.env.NETLIFY_BLOBS_CONTEXT);
+const onNetlify = Boolean(
+  process.env.STORE === "blobs" || process.env.NETLIFY || process.env.NETLIFY_BLOBS_CONTEXT || process.env.AWS_LAMBDA_FUNCTION_NAME,
+);
+
+/** Never let a slow storage call hang a page: give up after `ms`. */
+function withTimeout<T>(p: Promise<T>, ms: number, what: string): Promise<T> {
+  let t: ReturnType<typeof setTimeout>;
+  const timeout = new Promise<never>((_, rej) => { t = setTimeout(() => rej(new Error(`${what} timed out`)), ms); });
+  return Promise.race([p, timeout]).finally(() => clearTimeout(t));
+}
 
 async function blobs() {
   const { getStore } = await import("@netlify/blobs");
@@ -56,18 +65,19 @@ async function blobs() {
 async function read<T>(file: string, fallback: T): Promise<T> {
   try {
     if (onNetlify) {
-      const v = await (await blobs()).get(file, { type: "json" });
+      const v = await withTimeout((async () => (await blobs()).get(file, { type: "json" }))(), 4000, `read ${file}`);
       return (v ?? fallback) as T;
     }
     return JSON.parse(await fs.readFile(path.join(DIR, file), "utf8")) as T;
-  } catch {
+  } catch (e) {
+    if (onNetlify) console.error("[store] read failed:", e instanceof Error ? e.message : e);
     return fallback;
   }
 }
 
 async function write(file: string, data: unknown) {
   if (onNetlify) {
-    await (await blobs()).setJSON(file, data);
+    await withTimeout((async () => (await blobs()).setJSON(file, data))(), 6000, `write ${file}`);
     return;
   }
   await fs.mkdir(DIR, { recursive: true });

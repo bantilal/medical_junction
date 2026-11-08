@@ -17,9 +17,6 @@ export function StoreVisit({ compact = false }: { compact?: boolean }) {
             <div>
               <p className="font-semibold">Shop address</p>
               <p className="text-muted">{fullAddress()}</p>
-              {!addressKnown && (
-                <p className="mt-1 flex items-start gap-1.5 text-xs text-amber-800"><AlertCircle size={14} className="mt-0.5 shrink-0" aria-hidden /> Exact address coming soon - the map shows our area.</p>
-              )}
             </div>
           </li>
           <li className="flex gap-3">
@@ -36,7 +33,7 @@ export function StoreVisit({ compact = false }: { compact?: boolean }) {
               {site.hoursConfirmed ? (
                 site.hours.map((h) => <p key={h.opens} className="text-muted">{h.days.length > 1 ? `${h.days[0]} - ${h.days.at(-1)}` : h.days[0]}: {h.opens} - {h.closes}</p>)
               ) : (
-                <p className="text-muted">{site.status === "opening-soon" ? "Opening soon - timings will be announced." : "Please call to confirm today's timings."}</p>
+                <p className="text-muted">Please call us to confirm today&apos;s timings.</p>
               )}
             </div>
           </li>
@@ -61,7 +58,7 @@ export function StoreVisit({ compact = false }: { compact?: boolean }) {
           />
         </div>
         <figure className="card overflow-hidden">
-          <Image src="/images/shop-front.jpg" alt="Medical Junction shopfront with green and white signboard" width={954} height={1600} className="h-64 w-full object-cover object-top" sizes="(min-width:1024px) 40vw, 100vw" />
+          <Image src="/images/store-interior.webp" alt="Medical Junction pharmacy with green and white signboard and shelves" width={1672} height={941} className="h-64 w-full object-cover object-top" sizes="(min-width:1024px) 40vw, 100vw" />
           <figcaption className="px-4 py-2.5 text-xs text-muted">Look for the green Medical Junction signboard.</figcaption>
         </figure>
       </div>

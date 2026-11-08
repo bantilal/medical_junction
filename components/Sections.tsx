@@ -13,7 +13,7 @@ export function Hero() {
     <section className="relative overflow-hidden bg-gradient-to-br from-brand-100 via-white to-brand-50">
       <div aria-hidden className="absolute -left-24 top-10 size-80 rounded-full bg-brand-200/60 blur-3xl" />
       <div aria-hidden className="absolute -right-16 bottom-0 size-96 rounded-full bg-brand-300/30 blur-3xl" />
-      <div className="container-x relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
+      <div className="container-x relative grid grid-cols-[minmax(0,1fr)] items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
         <div className="animate-rise">
           <span className="eyebrow"><HeartPulse size={14} aria-hidden /> {soon ? "Opening soon in Hanumangarh" : "Now open in Hanumangarh"}</span>
           <h1 className="mt-5 font-heading text-4xl font-extrabold leading-[1.1] text-brand-900 sm:text-5xl lg:text-6xl">
@@ -32,14 +32,14 @@ export function Hero() {
             ))}
           </ul>
         </div>
-        <div className="relative mx-auto w-full max-w-md animate-rise [animation-delay:150ms]">
+        <div className="relative mx-auto w-full min-w-0 max-w-md animate-rise [animation-delay:150ms]">
           <div className="relative overflow-hidden rounded-[2rem] border-4 border-white shadow-lift">
-            <Image src="/images/shop-banner.jpg" alt="Medical Junction signboard: Your Health, Our Priority" width={1178} height={239} priority className="h-28 w-full object-cover sm:h-32" sizes="(min-width:1024px) 40vw, 90vw" />
+            <Image src="/images/store-interior.webp" alt="Medical Junction signboard: Your Health, Our Priority" width={1672} height={941} priority className="h-28 w-full object-cover object-top sm:h-32" sizes="(min-width:1024px) 40vw, 90vw" />
             <div className="relative grid place-items-center bg-gradient-to-b from-brand-50 to-brand-200 px-6 py-10">
-              <div className="flex items-end gap-2">
-                <ProductArt kind="pills" className="h-28 w-28" />
-                <ProductArt kind="firstaid" className="h-36 w-36" />
-                <ProductArt kind="sanitizer" className="h-28 w-28" />
+              <div className="flex w-full items-end justify-center gap-1 sm:gap-2">
+                <ProductArt kind="pills" className="aspect-square w-1/4 max-w-28" />
+                <ProductArt kind="firstaid" className="aspect-square w-1/3 max-w-36" />
+                <ProductArt kind="sanitizer" className="aspect-square w-1/4 max-w-28" />
               </div>
               <p className="mt-2 font-heading text-lg font-semibold text-brand-900">Your Health, Our Priority</p>
             </div>
@@ -71,7 +71,7 @@ export function StorePreview() {
             className="h-auto w-full"
             sizes="(min-width:1280px) 1216px, 100vw"
           />
-          <figcaption className="bg-brand-50 px-5 py-3 text-xs text-muted">Illustration of our store design. Final shop interior may differ.</figcaption>
+          <figcaption className="bg-brand-50 px-5 py-3 text-xs text-muted">Medical Junction - illustration of our store design.</figcaption>
         </figure>
       </div>
     </section>
@@ -118,7 +118,7 @@ export function OffersSection({ full = false }: { full?: boolean }) {
               <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-200"><Tag size={14} aria-hidden /> Special offers</span>
               <h2 id="offers" className="mt-2 font-heading text-3xl font-bold">Healthy Choices. Special Offers.</h2>
               <p className="mt-2 text-brand-100">
-                {list.length ? "Genuine deals, approved by our shop, on products you use every day." : "Our opening offers will be announced here soon. Ask us in store or on WhatsApp for the latest deals."}
+                {list.length ? "Genuine deals, approved by our shop, on products you use every day." : "New offers are added here regularly. Ask us in store or on WhatsApp for the latest deals."}
               </p>
             </div>
             <Link href="/offers" className="btn-light shrink-0">{list.length ? "Shop Offers" : "Ask About Offers"} <ArrowRight size={16} aria-hidden /></Link>
@@ -214,8 +214,8 @@ export function AboutSplit() {
     <section className="section bg-brand-50" aria-labelledby="about">
       <div className="container-x grid items-center gap-10 lg:grid-cols-2">
         <div className="grid grid-cols-2 gap-4">
-          <Image src="/images/shop-front.jpg" alt="Medical Junction shopfront" width={954} height={1600} className="row-span-2 h-full w-full rounded-2xl object-cover shadow-card" sizes="25vw" />
-          <Image src="/images/shop-banner.jpg" alt="Medical Junction banner" width={1178} height={239} className="h-40 w-full rounded-2xl object-cover shadow-card" sizes="25vw" />
+          <Image src="/images/store-interior.webp" alt="Medical Junction pharmacy shelves and counter" width={1672} height={941} className="row-span-2 h-full min-h-64 w-full rounded-2xl object-cover object-[70%_50%] shadow-card" sizes="(min-width:1024px) 25vw, 50vw" />
+          <Image src="/images/store-interior.webp" alt="Medical Junction signboard" width={1672} height={941} className="h-40 w-full rounded-2xl object-cover object-top shadow-card" sizes="(min-width:1024px) 25vw, 50vw" />
           <div className="grid place-items-center rounded-2xl bg-brand-700 p-5 text-center text-white shadow-card">
             <LogoMark size={52} />
             <p className="mt-2 font-heading font-semibold">Your Health, Our Priority</p>

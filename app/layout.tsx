@@ -8,9 +8,6 @@ import { Footer } from "@/components/Footer";
 import { FloatingContact } from "@/components/FloatingContact";
 import { JsonLd } from "@/components/JsonLd";
 import { pharmacyJsonLd, websiteJsonLd } from "@/lib/seo";
-import { listApprovedReviews, summarize } from "@/lib/store";
-
-export const revalidate = 60; // rating in structured data refreshes at most every minute
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const poppins = Poppins({ subsets: ["latin"], weight: ["500", "600", "700", "800"], variable: "--font-poppins", display: "swap" });
@@ -31,8 +28,9 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = { themeColor: "#176b45", width: "device-width", initialScale: 1 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const rating = summarize(await listApprovedReviews());
+// The layout does no storage I/O, so no page can hang on it. Ratings are added to the
+// structured data by the home and reviews pages, which are cached and refreshed every minute.
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-IN" className={`${inter.variable} ${poppins.variable}`}>
       <body>
@@ -44,7 +42,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <main id="main">{children}</main>
         <Footer />
         <FloatingContact />
-        <JsonLd data={pharmacyJsonLd(rating)} />
+        <JsonLd data={pharmacyJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
       </body>
     </html>

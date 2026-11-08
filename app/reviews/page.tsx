@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/PageHero";
 import { RatingSummaryCard, ReviewList } from "@/components/Ratings";
 import { ReviewForm } from "@/components/Forms";
-import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
+import { pageMeta, ratingJsonLd } from "@/lib/seo";
 import { getLikes, listApprovedReviews, summarize } from "@/lib/store";
 
 export const revalidate = 60;
@@ -14,8 +15,11 @@ export const metadata: Metadata = pageMeta({
 
 export default async function Reviews() {
   const [reviews, likes] = await Promise.all([listApprovedReviews(), getLikes()]);
+  const summary = summarize(reviews);
+  const ld = ratingJsonLd(summary);
   return (
     <>
+      {ld && <JsonLd data={ld} />}
       <PageHero title="Ratings & Reviews" intro="Only genuine, checked customer feedback is shown - never invented." crumbs={[{ name: "Reviews", path: "/reviews" }]} />
       <section className="section">
         <div className="container-x space-y-10">

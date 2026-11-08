@@ -8,7 +8,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { Disclaimer } from "@/components/PageHero";
 import { featuredProducts } from "@/data/catalog";
 import { faqs } from "@/data/content";
-import { faqJsonLd } from "@/lib/seo";
+import { faqJsonLd, ratingJsonLd } from "@/lib/seo";
 import { getLikes, listApprovedReviews, summarize } from "@/lib/store";
 
 export const revalidate = 60;
@@ -18,6 +18,7 @@ export default async function Home() {
   const summary = summarize(reviews);
   return (
     <>
+      {ratingJsonLd(summary) && <JsonLd data={ratingJsonLd(summary)} />}
       <Hero />
       <StorePreview />
       <CategoryGrid />

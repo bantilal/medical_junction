@@ -16,12 +16,17 @@ export async function POST(req: Request) {
   const d = parsed.data;
   if (d.website) return NextResponse.json({ ok: true, message: "Thank you for your feedback!" });
 
-  await addReview({
-    name: d.name,
-    rating: d.rating,
-    comment: d.comment,
-    product: d.product || undefined,
-    quality: { genuineness: d.genuineness, service: d.service, cleanliness: d.cleanliness, value: d.value },
-  });
+  try {
+    await addReview({
+      name: d.name,
+      rating: d.rating,
+      comment: d.comment,
+      product: d.product || undefined,
+      quality: { genuineness: d.genuineness, service: d.service, cleanliness: d.cleanliness, value: d.value },
+    });
+  } catch (e) {
+    console.error("[review] failed:", e instanceof Error ? e.message : e);
+    return NextResponse.json({ ok: false, message: "We could not save your review. Please try again shortly." }, { status: 503 });
+  }
   return NextResponse.json({ ok: true, message: "Thank you! Your review will appear after our team checks it." });
 }

@@ -12,7 +12,7 @@ export const site = {
   locale: "en_IN",
 
   /** "opening-soon" | "open" - changes the announcement bar and hero badge */
-  status: "opening-soon" as "opening-soon" | "open",
+  status: "open" as "opening-soon" | "open",
   openingDate: null as string | null, // e.g. "2026-12-01"  (TODO: confirm)
 
   contact: {
@@ -27,7 +27,7 @@ export const site = {
 
   address: {
     // TODO: replace with the full street address - used on the site, in the map and in Google structured data.
-    line1: "Shop address will be announced soon",
+    line1: "Medical Junction",
     area: "",
     city: "Hanumangarh",
     region: "Rajasthan",

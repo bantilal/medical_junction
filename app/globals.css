@@ -31,6 +31,8 @@
 html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
 body { background: #fff; color: var(--color-ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
 h1, h2, h3, h4 { font-family: var(--font-heading); letter-spacing: -0.015em; }
+.grid > * { min-width: 0; } /* stops grid children forcing the page wider than a phone */
+img, svg, video, iframe { max-width: 100%; }
 :focus-visible { outline: 3px solid var(--color-brand-500); outline-offset: 2px; border-radius: 6px; }
 
 @utility btn {

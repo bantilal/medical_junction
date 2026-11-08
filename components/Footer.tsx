@@ -47,7 +47,7 @@ export function Footer() {
               {site.hoursConfirmed ? (
                 <span>{site.hours.map((h) => <span key={h.opens} className="block">{h.days.length > 1 ? `${h.days[0].slice(0, 3)} - ${h.days.at(-1)!.slice(0, 3)}` : h.days[0].slice(0, 3)}: {h.opens} - {h.closes}</span>)}</span>
               ) : (
-                <span>Opening hours will be announced soon</span>
+                <span>Call us to confirm today&apos;s timings</span>
               )}
             </li>
           </ul>

@@ -16,13 +16,13 @@ npm run build && npm start   # production
 - Full street address, postal code, **map coordinates** (Google Maps: right-click the shop > copy coordinates) and the Google Maps share link
 - Confirm phone / WhatsApp numbers (read from the banner photo), e-mail, opening hours (`hoursConfirmed: true`)
 - Drug licence number, GSTIN, pharmacist name (shown on /quality only when filled)
-- `status: "open"` after opening; social links; Google review link
+- Social links; Google review link
 - Set `NEXT_PUBLIC_SITE_URL` to the real domain (sitemap, canonical, schema)
 
 ## Content
 - Products: `data/catalog.ts` (real prices stay `null` until verified; add photos to `public/images/products/` and set `image`)
 - Offers: `data/content.ts` (none published until you add real ones; they expire on `validUntil`)
-- Photos: `public/images/` (shop-front.jpg, shop-banner.jpg)
+- Photos: `public/images/store-interior.webp` (replace with a real photo of the open shop when available)
 
 ## Reviews, likes, inquiries
 Stored as JSON in `DATA_DIR`. Reviews are **hidden until approved** at `/admin`; rating and AggregateRating schema appear only when real approved reviews exist. Use a host with a persistent disk (VPS, Render disk) or swap `lib/store.ts` for a database.

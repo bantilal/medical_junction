@@ -17,6 +17,11 @@ export async function POST(req: Request) {
   if (parsed.data.website) return NextResponse.json({ ok: true, message: "Thank you! We will contact you soon." });
 
   const { consent: _c, website: _w, ...data } = parsed.data;
-  await addInquiry({ ...data, email: data.email || undefined, product: data.product || undefined });
+  try {
+    await addInquiry({ ...data, email: data.email || undefined, product: data.product || undefined });
+  } catch (e) {
+    console.error("[inquiry] failed:", e instanceof Error ? e.message : e);
+    return NextResponse.json({ ok: false, message: "We could not save your message. Please call or WhatsApp us." }, { status: 503 });
+  }
   return NextResponse.json({ ok: true, message: "Thank you! Medical Junction will contact you soon." });
 }

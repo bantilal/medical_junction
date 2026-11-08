@@ -41,12 +41,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <PageHero title={p.name} crumbs={[{ name: "Products", path: "/products" }, { name: cat.name, path: `/products/category/${cat.slug}` }, { name: p.name, path: `/products/${p.slug}` }]} />
       <section className="section">
         <div className="container-x grid gap-10 lg:grid-cols-2">
-          <div className="card grid place-items-center bg-gradient-to-b from-brand-50 to-brand-100 p-10">
-            {p.image ? <Image src={p.image} alt={p.name} width={600} height={600} className="h-72 w-full object-contain" priority /> : <ProductArt kind={p.art} className="h-72 w-72" />}
+          <div className="card grid min-w-0 place-items-center bg-gradient-to-b from-brand-50 to-brand-100 p-6 sm:p-10">
+            {p.image ? <Image src={p.image} alt={p.name} width={600} height={600} className="h-56 w-full object-contain sm:h-72" priority /> : <ProductArt kind={p.art} className="aspect-square w-full max-w-72" />}
           </div>
-          <div>
+          <div className="min-w-0">
             <Link href={`/products/category/${cat.slug}`} className="eyebrow">{cat.name}</Link>
-            <h2 className="mt-3 font-heading text-3xl font-bold text-brand-900">{p.name}</h2>
+            <h2 className="mt-3 break-words font-heading text-2xl font-bold text-brand-900 sm:text-3xl">{p.name}</h2>
             {p.brand && <p className="mt-1 text-muted">Brand: {p.brand}</p>}
             <p className="mt-4 leading-relaxed text-muted">{p.description}</p>
             <div className="mt-5 flex flex-wrap items-center gap-3">

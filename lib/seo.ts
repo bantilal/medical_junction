@@ -35,7 +35,7 @@ export function pharmacyJsonLd(rating?: RatingSummary) {
     slogan: site.tagline,
     description: site.description,
     url: abs("/"),
-    image: [abs("/images/shop-front.jpg"), abs("/opengraph-image")],
+    image: [abs("/images/store-interior.webp"), abs("/opengraph-image")],
     logo: abs("/icon.svg"),
     telephone: site.contact.phones[0]?.tel,
     ...(site.contact.email ? { email: site.contact.email } : {}),
@@ -73,6 +73,17 @@ export function pharmacyJsonLd(rating?: RatingSummary) {
   void fullAddress;
   return data;
 }
+
+/** Rating-only fragment sharing the Pharmacy @id; emitted only when real approved reviews exist. */
+export const ratingJsonLd = (r: RatingSummary) =>
+  r.count > 0
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Pharmacy",
+        "@id": abs("/#pharmacy"),
+        aggregateRating: { "@type": "AggregateRating", ratingValue: r.average, reviewCount: r.count, bestRating: 5, worstRating: 1 },
+      }
+    : null;
 
 export const websiteJsonLd = () => ({
   "@context": "https://schema.org",

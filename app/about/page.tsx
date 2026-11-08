@@ -35,7 +35,7 @@ export default function About() {
             ))}
           </ul>
           <figure className="mt-12 overflow-hidden rounded-3xl shadow-card">
-            <Image src="/images/shop-banner.jpg" alt="Medical Junction banner - Quality Medicines, Better Health, Healthier Tomorrow" width={1178} height={239} className="w-full" sizes="100vw" />
+            <Image src="/images/store-interior.webp" alt="Medical Junction pharmacy - Your Health, Our Priority" width={1672} height={941} className="h-auto w-full" sizes="100vw" />
           </figure>
         </div>
       </section>
