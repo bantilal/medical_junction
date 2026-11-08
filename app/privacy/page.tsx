@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/LegalPage";
 import { pageMeta } from "@/lib/seo";
 import { site } from "@/config/site";
 
-export const metadata: Metadata = pageMeta({ title: "Privacy Policy", description: "How Medical Junction collects, uses and protects your information.", path: "/privacy" });
+export const metadata: Metadata = pageMeta({ title: "Privacy Policy", description: "How Medical Junction in Hanumangarh collects, uses and protects the information you share through this website's inquiry and review forms.", path: "/privacy" });
 
 export default function Privacy() {
   return (

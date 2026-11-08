@@ -7,7 +7,7 @@ export const site = {
   name: "Medical Junction",
   tagline: "Your Health, Our Priority",
   description:
-    "Medical Junction is a neighbourhood pharmacy and healthcare store in Hanumangarh, Rajasthan - medicines, healthcare products, personal care and wellness essentials from authorised suppliers.",
+    "Medical Junction - pharmacy and healthcare store in Hanumangarh, Rajasthan. Medicines, healthcare products, personal care and wellness essentials.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   locale: "en_IN",
 
@@ -16,12 +16,8 @@ export const site = {
   openingDate: null as string | null, // e.g. "2026-12-01"  (TODO: confirm)
 
   contact: {
-    // Numbers read from the shop banner photo - please verify before launch.
-    phones: [
-      { label: "94641 11431", tel: "+919464111431" },
-      { label: "91156 03941", tel: "+919115603941" },
-    ],
-    whatsapp: "919464111431", // international format, no +  (TODO: confirm WhatsApp number)
+    phones: [{ label: "80059 33533", tel: "+918005933533" }],
+    whatsapp: "918005933533", // international format, no +
     email: "" as string, // TODO: add shop e-mail
   },
 

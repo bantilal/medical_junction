@@ -20,7 +20,7 @@ export function Hero() {
             Your Trusted Partner in <span className="text-brand-600">Everyday Healthcare</span>
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted">
-            Discover medicines, healthcare products, wellness essentials and personal care at Medical Junction - genuine products, honest advice, and a pharmacy that puts your health first.
+            Medical Junction is a pharmacy and healthcare store in Hanumangarh, Rajasthan. Discover medicines, healthcare products, wellness essentials and personal care - genuine products, honest advice, and a pharmacy that puts your health first.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Link href="/products" className="btn-primary px-6 py-3 text-base">Explore Products <ArrowRight size={18} aria-hidden /></Link>

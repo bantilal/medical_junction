@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LegalPage } from "@/components/LegalPage";
 import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = pageMeta({ title: "Medical Disclaimer", description: "Medical disclaimer for the Medical Junction website.", path: "/disclaimer" });
+export const metadata: Metadata = pageMeta({ title: "Medical Disclaimer", description: "Medical disclaimer for the Medical Junction website: general information only, not medical advice. Consult a doctor or pharmacist before using any medicine.", path: "/disclaimer" });
 
 export default function Disclaimer() {
   return (

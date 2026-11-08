@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { LegalPage } from "@/components/LegalPage";
 import { pageMeta } from "@/lib/seo";
 
-export const metadata: Metadata = pageMeta({ title: "Terms & Conditions", description: "Terms for using the Medical Junction website.", path: "/terms" });
+export const metadata: Metadata = pageMeta({ title: "Terms & Conditions", description: "Terms for using the Medical Junction website: informational content only, prices and offers confirmed in store, prescription rules and review policy.", path: "/terms" });
 
 export default function Terms() {
   return (

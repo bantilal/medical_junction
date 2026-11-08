@@ -4,21 +4,31 @@ import type { RatingSummary } from "@/lib/store";
 
 export const abs = (p = "/") => new URL(p, site.url).toString();
 
+/** Trim to a search-snippet length without cutting a word in half. */
+export function clip(s: string, max = 155): string {
+  const t = s.replace(/\s+/g, " ").trim();
+  if (t.length <= max) return t;
+  return t.slice(0, max - 1).replace(/\s+\S*$/, "") + "…";
+}
+
 export function pageMeta(opts: { title: string; description: string; path: string; image?: string }): Metadata {
+  const description = clip(opts.description);
+  // Pages that define their own openGraph replace the parent's, so the share image is set explicitly.
+  const image = { url: opts.image ?? "/opengraph-image", width: 1200, height: 630, alt: `${site.name} - ${site.tagline}` };
   return {
     title: opts.title,
-    description: opts.description,
+    description,
     alternates: { canonical: opts.path },
     openGraph: {
       title: `${opts.title} | ${site.name}`,
-      description: opts.description,
+      description,
       url: opts.path,
       siteName: site.name,
       locale: site.locale,
       type: "website",
-      ...(opts.image ? { images: [{ url: opts.image }] } : {}),
+      images: [image],
     },
-    twitter: { card: "summary_large_image", title: `${opts.title} | ${site.name}`, description: opts.description },
+    twitter: { card: "summary_large_image", title: `${opts.title} | ${site.name}`, description, images: [image.url] },
   };
 }
 

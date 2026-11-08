@@ -5,7 +5,7 @@ import { categories, products } from "@/data/catalog";
 import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
-  title: "Products - Medicines, Healthcare, Personal Care & Wellness",
+  title: "Healthcare & Wellness Products in Hanumangarh",
   description: "Browse healthcare products, personal care, wellness essentials and general medicines at Medical Junction, Hanumangarh. Call or WhatsApp to check availability.",
   path: "/products",
 });
