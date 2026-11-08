@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Next.js (App Router, ISR, route handlers, images) is deployed automatically by Netlify's OpenNext adapter.

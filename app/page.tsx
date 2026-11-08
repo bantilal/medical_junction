@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { AboutSplit, CategoryGrid, Hero, OffersSection, QualityBlock, WhyChoose } from "@/components/Sections";
+import { AboutSplit, CategoryGrid, Hero, OffersSection, QualityBlock, StorePreview, WhyChoose } from "@/components/Sections";
 import { ProductCard } from "@/components/ProductCard";
 import { RatingSummaryCard, ReviewList } from "@/components/Ratings";
 import { StoreVisit } from "@/components/StoreVisit";
@@ -19,6 +19,7 @@ export default async function Home() {
   return (
     <>
       <Hero />
+      <StorePreview />
       <CategoryGrid />
 
       <section className="section pt-0" aria-labelledby="featured">

@@ -45,23 +45,45 @@ interface Likes {
 
 const locks = new Map<string, Promise<unknown>>();
 
+/** On Netlify the disk is read-only, so data lives in Netlify Blobs (free, built in). Locally it uses files. */
+const onNetlify = Boolean(process.env.NETLIFY || process.env.NETLIFY_BLOBS_CONTEXT);
+
+async function blobs() {
+  const { getStore } = await import("@netlify/blobs");
+  return getStore({ name: "medical-junction", consistency: "strong" });
+}
+
 async function read<T>(file: string, fallback: T): Promise<T> {
   try {
+    if (onNetlify) {
+      const v = await (await blobs()).get(file, { type: "json" });
+      return (v ?? fallback) as T;
+    }
     return JSON.parse(await fs.readFile(path.join(DIR, file), "utf8")) as T;
   } catch {
     return fallback;
   }
 }
 
+async function write(file: string, data: unknown) {
+  if (onNetlify) {
+    await (await blobs()).setJSON(file, data);
+    return;
+  }
+  await fs.mkdir(DIR, { recursive: true });
+  const tmp = path.join(DIR, `${file}.${randomUUID()}.tmp`);
+  await fs.writeFile(tmp, JSON.stringify(data, null, 2), "utf8");
+  await fs.rename(tmp, path.join(DIR, file));
+}
+
+// Serialised per instance. Across serverless instances two writes at the same instant could race;
+// that is acceptable at a single shop's traffic. Move to a SQL database if volume grows.
 async function mutate<T, R>(file: string, fallback: T, fn: (data: T) => R | Promise<R>): Promise<R> {
   const prev = locks.get(file) ?? Promise.resolve();
   const run = prev.then(async () => {
-    await fs.mkdir(DIR, { recursive: true });
     const data = await read<T>(file, fallback);
     const result = await fn(data);
-    const tmp = path.join(DIR, `${file}.${randomUUID()}.tmp`);
-    await fs.writeFile(tmp, JSON.stringify(data, null, 2), "utf8");
-    await fs.rename(tmp, path.join(DIR, file));
+    await write(file, data);
     return result;
   });
   locks.set(file, run.catch(() => undefined));

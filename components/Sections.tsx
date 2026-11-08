@@ -58,6 +58,27 @@ const tones = {
   amber: "from-amber-50 to-lime-100",
 } as const;
 
+export function StorePreview() {
+  return (
+    <section className="section pt-0" aria-labelledby="preview">
+      <div className="container-x">
+        <h2 id="preview" className="sr-only">Step inside Medical Junction</h2>
+        <figure className="overflow-hidden rounded-3xl border border-line shadow-lift">
+          <Image
+            src="/images/store-interior.webp"
+            alt="Medical Junction store design: green and white pharmacy with shelves for Medicines, Healthcare Products, Personal Care and Wellness Essentials"
+            width={1672}
+            height={941}
+            className="h-auto w-full"
+            sizes="(min-width:1280px) 1216px, 100vw"
+          />
+          <figcaption className="bg-brand-50 px-5 py-3 text-xs text-muted">Illustration of our store design. Final shop interior may differ.</figcaption>
+        </figure>
+      </div>
+    </section>
+  );
+}
+
 export function CategoryGrid() {
   return (
     <section className="section" aria-labelledby="cats">
