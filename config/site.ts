@@ -34,9 +34,9 @@ export const site = {
     postalCode: "",
     country: "IN",
     /** Exact coordinates make the map pin and Google local result exact. TODO: add from Google Maps (right-click the shop > copy coordinates). */
-    geo: null as { lat: number; lng: number } | null,
+    geo: { lat: 29.60889037181122, lng: 74.2953545803483 } as { lat: number; lng: number } | null,
     /** Text Google Maps searches for. Replace with the full address or the shop's Google Maps name. */
-    mapQuery: "Medical Junction Pharmacy, Hanumangarh, Rajasthan",
+    mapQuery: "Medical Junction, Hanumangarh, Rajasthan",
     /** Paste the shop's "Share > Copy link" URL from Google Maps here once the listing exists. */
     mapsUrl: "" as string,
     /** Paste "Write a review" link from Google Business Profile here to collect Google reviews. */
