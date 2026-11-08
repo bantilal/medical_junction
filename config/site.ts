@@ -7,7 +7,7 @@ export const site = {
   name: "Medical Junction",
   tagline: "Your Health, Our Priority",
   description:
-    "Medical Junction is a neighbourhood pharmacy and healthcare store in Jaipur, Rajasthan - medicines, healthcare products, personal care and wellness essentials from authorised suppliers.",
+    "Medical Junction is a neighbourhood pharmacy and healthcare store in Hanumangarh, Rajasthan - medicines, healthcare products, personal care and wellness essentials from authorised suppliers.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   locale: "en_IN",
 
@@ -29,14 +29,14 @@ export const site = {
     // TODO: replace with the full street address - used on the site, in the map and in Google structured data.
     line1: "Shop address will be announced soon",
     area: "",
-    city: "Jaipur",
+    city: "Hanumangarh",
     region: "Rajasthan",
     postalCode: "",
     country: "IN",
     /** Exact coordinates make the map pin and Google local result exact. TODO: add from Google Maps (right-click the shop > copy coordinates). */
     geo: null as { lat: number; lng: number } | null,
     /** Text Google Maps searches for. Replace with the full address or the shop's Google Maps name. */
-    mapQuery: "Medical Junction Pharmacy, Jaipur, Rajasthan",
+    mapQuery: "Medical Junction Pharmacy, Hanumangarh, Rajasthan",
     /** Paste the shop's "Share > Copy link" URL from Google Maps here once the listing exists. */
     mapsUrl: "" as string,
     /** Paste "Write a review" link from Google Business Profile here to collect Google reviews. */

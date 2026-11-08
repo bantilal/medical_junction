@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Medical Junction",
     short_name: "Medical Junction",
-    description: "Your Health, Our Priority - pharmacy and healthcare store in Jaipur.",
+    description: "Your Health, Our Priority - pharmacy and healthcare store in Hanumangarh.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

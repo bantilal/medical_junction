@@ -9,14 +9,14 @@ import { site } from "@/config/site";
 
 export const metadata: Metadata = pageMeta({
   title: "About Us",
-  description: "Medical Junction is a neighbourhood pharmacy and healthcare store in Jaipur - our story, mission and commitment to genuine products and caring service.",
+  description: "Medical Junction is a neighbourhood pharmacy and healthcare store in Hanumangarh - our story, mission and commitment to genuine products and caring service.",
   path: "/about",
 });
 
 export default function About() {
   const cards = [
     { icon: Target, t: "Our mission", d: "To make genuine medicines and healthcare products easy to find, with honest advice and fair service for every family." },
-    { icon: Eye, t: "Our vision", d: "To be the most trusted neighbourhood healthcare destination in Jaipur." },
+    { icon: Eye, t: "Our vision", d: "To be the most trusted neighbourhood healthcare destination in Hanumangarh." },
     { icon: HeartHandshake, t: "Our promise", d: "We put safety before sales. If a product needs a prescription or a doctor, we will say so." },
   ];
   return (

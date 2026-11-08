@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Contact & Location",
-  description: "Contact Medical Junction in Jaipur - phone, WhatsApp, shop address, opening hours, map and directions.",
+  description: "Contact Medical Junction in Hanumangarh - phone, WhatsApp, shop address, opening hours, map and directions.",
   path: "/contact",
 });
 

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: { default: `${site.name} - Pharmacy & Healthcare Store in ${site.address.city}`, template: `%s | ${site.name}` },
   description: site.description,
   applicationName: site.name,
-  keywords: ["pharmacy in Jaipur", "medical store Jaipur", "healthcare products Jaipur", "Medical Junction", "personal care", "wellness essentials"],
+  keywords: ["pharmacy in Hanumangarh", "medical store Hanumangarh", "healthcare products Hanumangarh", "Medical Junction", "personal care", "wellness essentials"],
   alternates: { canonical: "/" },
   openGraph: { type: "website", siteName: site.name, locale: site.locale, url: "/", title: site.name, description: site.description },
   twitter: { card: "summary_large_image", title: site.name, description: site.description },

@@ -16,7 +16,7 @@ export default function OG() {
           </div>
         </div>
         <div style={{ marginTop: 48, fontSize: 42, fontWeight: 600 }}>Your Health, Our Priority</div>
-        <div style={{ marginTop: 14, fontSize: 28, color: "#c5e8d5" }}>Pharmacy & healthcare store · Jaipur, Rajasthan</div>
+        <div style={{ marginTop: 14, fontSize: 28, color: "#c5e8d5" }}>Pharmacy & healthcare store · Hanumangarh, Rajasthan</div>
       </div>
     ),
     size,

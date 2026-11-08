@@ -6,7 +6,7 @@ import { pageMeta } from "@/lib/seo";
 
 export const metadata: Metadata = pageMeta({
   title: "Special Offers",
-  description: "Current offers at Medical Junction, Jaipur on personal care, wellness and healthcare products. Ask in store or on WhatsApp.",
+  description: "Current offers at Medical Junction, Hanumangarh on personal care, wellness and healthcare products. Ask in store or on WhatsApp.",
   path: "/offers",
 });
 

@@ -48,7 +48,7 @@ export const faqs = [
   },
   {
     q: "Where is Medical Junction located?",
-    a: "We are in Jaipur, Rajasthan. See the Contact page for the address, map and directions.",
+    a: "We are in Hanumangarh, Rajasthan. See the Contact page for the address, map and directions.",
   },
   {
     q: "Can your pharmacist give medical advice?",

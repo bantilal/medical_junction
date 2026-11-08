@@ -11,7 +11,7 @@ export function AnnouncementBar() {
           <Sparkles size={14} className="shrink-0 text-brand-300" aria-hidden />
           <span>
             <strong className="font-semibold">Welcome to Medical Junction</strong>
-            <span className="hidden sm:inline"> - {soon ? "Opening soon in Jaipur" : "Visit our store today"}</span>
+            <span className="hidden sm:inline"> - {soon ? "Opening soon in Hanumangarh" : "Visit our store today"}</span>
           </span>
         </p>
         <a href={`tel:${p.tel}`} className="flex shrink-0 items-center gap-1.5 font-medium hover:text-brand-300">

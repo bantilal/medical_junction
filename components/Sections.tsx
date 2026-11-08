@@ -15,7 +15,7 @@ export function Hero() {
       <div aria-hidden className="absolute -right-16 bottom-0 size-96 rounded-full bg-brand-300/30 blur-3xl" />
       <div className="container-x relative grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
         <div className="animate-rise">
-          <span className="eyebrow"><HeartPulse size={14} aria-hidden /> {soon ? "Opening soon in Jaipur" : "Now open in Jaipur"}</span>
+          <span className="eyebrow"><HeartPulse size={14} aria-hidden /> {soon ? "Opening soon in Hanumangarh" : "Now open in Hanumangarh"}</span>
           <h1 className="mt-5 font-heading text-4xl font-extrabold leading-[1.1] text-brand-900 sm:text-5xl lg:text-6xl">
             Your Trusted Partner in <span className="text-brand-600">Everyday Healthcare</span>
           </h1>
@@ -225,7 +225,7 @@ export function AboutSplit() {
         <div>
           <h2 id="about" className="h-title">Your Health. Our Commitment.</h2>
           <p className="mt-5 leading-relaxed text-muted">
-            Medical Junction is a neighbourhood pharmacy and healthcare store in Jaipur built around a simple idea: families should be able to find genuine medicines and healthcare products, and honest advice, under one roof.
+            Medical Junction is a neighbourhood pharmacy and healthcare store in Hanumangarh built around a simple idea: families should be able to find genuine medicines and healthcare products, and honest advice, under one roof.
           </p>
           <p className="mt-4 leading-relaxed text-muted">
             We keep the range focused, the shelves clean, the paperwork in order and the counter friendly - because when it comes to health, small details matter.

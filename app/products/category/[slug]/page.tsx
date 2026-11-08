@@ -12,7 +12,7 @@ export const generateStaticParams = () => categories.map((c) => ({ slug: c.slug 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const c = getCategory((await params).slug);
   if (!c) return {};
-  return pageMeta({ title: `${c.name} in Jaipur`, description: `${c.description} Visit Medical Junction, Jaipur.`, path: `/products/category/${c.slug}` });
+  return pageMeta({ title: `${c.name} in Hanumangarh`, description: `${c.description} Visit Medical Junction, Hanumangarh.`, path: `/products/category/${c.slug}` });
 }
 
 export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {

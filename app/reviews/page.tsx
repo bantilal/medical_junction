@@ -8,7 +8,7 @@ import { getLikes, listApprovedReviews, summarize } from "@/lib/store";
 export const revalidate = 60;
 export const metadata: Metadata = pageMeta({
   title: "Customer Reviews & Ratings",
-  description: "Read genuine customer ratings and quality feedback for Medical Junction, Jaipur - and share your own experience.",
+  description: "Read genuine customer ratings and quality feedback for Medical Junction, Hanumangarh - and share your own experience.",
   path: "/reviews",
 });
 

@@ -18,7 +18,7 @@ export const generateStaticParams = () => products.map((p) => ({ slug: p.slug })
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const p = getProduct((await params).slug);
   if (!p) return {};
-  return pageMeta({ title: `${p.name} in Jaipur`, description: `${p.summary} ${p.description}`.slice(0, 158), path: `/products/${p.slug}` });
+  return pageMeta({ title: `${p.name} in Hanumangarh`, description: `${p.summary} ${p.description}`.slice(0, 158), path: `/products/${p.slug}` });
 }
 
 export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
